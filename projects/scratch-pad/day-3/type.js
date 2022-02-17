@@ -14,12 +14,17 @@
  */
 function isArray(value) {
     // YOUR CODE BELOW HERE //
-    
+    if (Array.isArray(value) === true) {
+        return true;
+    }else {
+        return false;
+    }
+}   
     
     
     
     // YOUR CODE ABOVE HERE //
-}
+
 
 /** 
  * Given an input value, return true if the value is an Object intended as a 
@@ -32,11 +37,27 @@ function isArray(value) {
 function isObject(value) {
     // YOUR CODE BELOW HERE //
     
+    //determine if typeof of the input value is "object" AND that the value is not equal to null 
+    //AND that the value is not an array AND that the value is not an instance of the date object
+    if (typeof value === "object" && value !== null && Array.isArray(value) === false && value instanceof Date === false){
+        return true;
+    }else {
+        return false;    
+    }
+}
+  /*  if (typeOf value === "object" && typeOf value !== null && Array.isArray(value) === false && value instanceof Date === false){
+      return true; //return true 
+    }else {
+        return false;
+    }
+    }
+    
+   */ 
     
     
     
     // YOUR CODE ABOVE HERE //
-}
+
 
 /** 
  * Given an input value, return true if is either an Array or an an Object 
@@ -47,8 +68,12 @@ function isObject(value) {
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
     
-    
-    
+    //if input value is array
+    if(Array.isArray(value) === true || typeof value === "object" &&  value !== null && value instanceof Date === false){
+        return true;
+    } else {
+        return false;
+    }   
     
     // YOUR CODE ABOVE HERE //
 }
@@ -57,14 +82,14 @@ function isCollection(value) {
  * Given an input value, return the type of the value as a String
  * 
  * Types are one of: 
- *    - "string"
- *    - "array"
+ *    - "string" **
+ *    - "array" 
  *    - "object"
- *    - "undefined"
- *    - "number"
- *    - "boolean"
+ *    - "undefined" **
+ *    - "number" **
+ *    - "boolean" **
  *    - "null"
- *    - "function"
+ *    - "function" **
  *    - "date"
  * 
  * Examples:
@@ -74,10 +99,35 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+    //determine if input value is a string
+    if (typeof value === 'string'){
+        return 'string'
+    //else determine if value is a number
+    }else if (typeof value === 'number'){
+        return 'number'
+    //else determine if value is undefined
+    }else if (typeof value === 'undefined'){
+        return 'undefined'
+    //else determine if value is boolean
+    }else if (typeof value === 'boolean'){
+        return 'boolean'
+    //else determine if value is a function
+    }else if (typeof value === 'function'){
+        return 'function'
+    //else determine if value is an array
+    }else if (Array.isArray(value) === true){
+        return 'array'
+    //else determine if value is null
+    }else if (value === null){
+        return 'null'
+    //else determine if value is a date
+    }else if (value instanceof Date === true){
+        return 'date'
+    //else it must be an object
+    }else {
+        return 'object'
+    };
+        
     // YOUR CODE ABOVE HERE //
 }
 
@@ -90,3 +140,4 @@ if((typeof process !== 'undefined') &&
     module.exports.isCollection = isCollection;
     module.exports.typeOf = typeOf;
 }
+

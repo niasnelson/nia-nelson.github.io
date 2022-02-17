@@ -12,10 +12,11 @@
  */
 function printArrayValues(array) {
   // YOUR CODE BELOW HERE //
-  
-  
-  
-  
+  //use for loop to loop forward over array
+  for(var i = 0; i < array.length; i++){
+    //print the values of the array to the console
+    console.log(array[i]);
+  }
   // YOUR CODE ABOVE HERE //
 }
 
@@ -25,7 +26,11 @@ function printArrayValues(array) {
  */
 function printArrayValuesInReverse(array) {
   // YOUR CODE BELOW HERE //
-  
+  //use for loop to loop backwards over the Array
+  for (var i = array.length - 1; i >= 0; i--){
+    //print the values of the array to the console
+    console.log(array[i]);
+  }
   
   
   
@@ -37,23 +42,25 @@ function printArrayValuesInReverse(array) {
  */
 function getObjectKeys(object) {
   // YOUR CODE BELOW HERE //
-  
-  
+  return Object.keys(object); 
+  }
+
+
   
   
   // YOUR CODE ABOVE HERE //
-}
+
 
 /** 
  * Given an input Object, loop over the Object and print its keys 
  * using console.log().
  */
+
 function printObjectKeys(object) {
   // YOUR CODE BELOW HERE //
-  
-  
-  
-  
+  for (var keys in object){
+    console.log(object[keys]);
+  }
   // YOUR CODE ABOVE HERE //
 }
 
@@ -62,7 +69,7 @@ function printObjectKeys(object) {
  */
 function getObjectValues(object) {
   // YOUR CODE BELOW HERE //
-  
+  return Object.values(object); 
   
   
   
@@ -75,8 +82,9 @@ function getObjectValues(object) {
  */
 function printObjectValues(object) {
   // YOUR CODE BELOW HERE //
-  
-  
+  for (var values in object){
+    console.log(object[values]);
+  }
   
   
   // YOUR CODE ABOVE HERE //
@@ -87,21 +95,28 @@ function printObjectValues(object) {
  */
 function getObjectLength(object) {
   // YOUR CODE BELOW HERE //
-  
+  return Object.keys(object).length;
+  }
   
   
   
   // YOUR CODE ABOVE HERE //
-}
 
+//DON'T UNDERSTAND WHY THIS IS THE ANSWER//
 /** 
  * Given an input Object, how might we loop over the Object IN REVERSE and 
  * print its values using console.log()?
  */
+
 function printObjectValuesInReverse(object) {
   // YOUR CODE BELOW HERE //
-  
-  
+  var arr = [];
+  for (var key in object){
+    arr.push(object[key]);
+  }  
+  for(var i = arr.length-1; i >= 0; i--){
+    console.log(arr[i]);
+  }
   
   
   // YOUR CODE ABOVE HERE //

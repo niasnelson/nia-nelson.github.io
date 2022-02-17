@@ -35,30 +35,44 @@
 
 // YOUR CODE GOES BELOW HERE //
 function makeContact(id, nameFirst, nameLast) {
+    return {
+        id: id,
+        nameFirst: nameFirst,
+        nameLast: nameLast
+        };
+}
+ 
 
-} 
 
-
-function makeContactList() {
+function makeContactList(){
     /*
      * You need something here to hold contacts. See length api for a hint:
      */
-    var contacts;
+    var contacts = [];
     
     return {
         // we implemented the length api for you //
         length: function() {
             return contacts.length;
+    },
+    addContact: function(contact){
+        //add contact object to contacts
+        contacts.push(contact);
+    },
+    findContact: function(fullName){//ex. "Max Gaudin"
+        for (var i = 0; i < contacts.length; i++) {
+            if(fullName === contacts[i]['nameFirst'] + " " + contacts[i]['nameLast']){
+                return contacts[i];
+            }
         }
-    }
-}
+    },
+
+    
 
 
-
+    
 
 // YOUR CODE GOES ABOVE HERE //
-
-
 
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
@@ -67,4 +81,5 @@ if((typeof process !== 'undefined') &&
     // here, export any references you need for tests //
     module.exports.makeContact = makeContact;
     module.exports.makeContactList = makeContactList;
+}
 }

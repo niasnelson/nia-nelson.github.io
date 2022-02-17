@@ -19,15 +19,27 @@
  *  d. how do you concatenate Strings? What operator do we use?
  */
 
-function reverseString(input) {
+function reverseString(str) {
     // YOUR CODE GOES BELOW HERE //
+    //create output string that is reversed
+      var reversed = "";
+      //iterate through string
+      for (var i = str.length - 1; i >= 0; i--){
+        //take the value at the current index and add to reverse
+        reversed += str[i]; //reverse = "" + "x" => "x"
+      }
+    
+      // return reveresed
+      return reversed; // "xelA"
+    }
+    
     
     
     
     
     // YOUR CODE GOES ABOVE HERE //
-}
 
+    console.log(reverseString("Alex")); // => "xelA"
 
 
 
