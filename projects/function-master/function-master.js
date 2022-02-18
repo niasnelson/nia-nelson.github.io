@@ -2,16 +2,31 @@
 // Function 1 - Object Values ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function objectValues(object) {
+var objectOne = {
+    a: "one",
+    b: "two",
+    ponies: "crayons",
+    dingle: "dangle"
+};
+var objectTwo = {
+    c: "three",
+    d: "four",
+    crayons: "ponies",
+    dangle: "dingle"
+};
 
-} 
+function objectValues(object) {
+  return Object.values(object);
+    }
+    
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 2 - Keys to String ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function keysToString(object) {
-
+    return Object.keys(object).join(" ");
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -19,7 +34,7 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
-    
+    return Object.values(object).join(" ");
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -27,7 +42,12 @@ function valuesToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function arrayOrObject(collection) {
-    
+    if (Array.isArray(collection) === true){
+          return "array";
+    } else if (typeof collection === "object"){
+          return "object";
+    }
+     
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -35,7 +55,7 @@ function arrayOrObject(collection) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeWord(string) {
-    
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -43,15 +63,20 @@ function capitalizeWord(string) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
-    
-}
+    var words = string.split(' ');
+    for(var i = 0; i < words.length; i++){
+      words[i] = words[i][0].toUpperCase() + words[i].substr(1)
+    }
+  return words.join(' ');
+  }
 
 //////////////////////////////////////////////////////////////////////
 // Function 7 - Welcome Message //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
-
+    return "Welcome" + " " + (object.name.charAt(0).toUpperCase() + object.name.slice(1)) + "!";
+  
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -59,7 +84,7 @@ function welcomeMessage(object) {
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
-
+    return (object.name.charAt(0).toUpperCase() + object.name.slice(1)) + " " + "is a" + " " + (object.species.charAt(0).toUpperCase() + object.species.slice(1));
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -67,7 +92,13 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
-
+    if(Array.isArray(object.noises) === false){
+        return "there are no noises";
+    } else if (object.noises.length === 0){
+        return "there are no noises";
+    } else {
+        return object.noises.join(" ");
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -75,7 +106,11 @@ function maybeNoises(object) {
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
-
+    if (string.includes(word)){
+        return true;
+      }else {
+        return false;
+      }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -83,7 +118,8 @@ function hasWord(string, word) {
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
-
+    object.friends.push(name);
+    return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -91,8 +127,14 @@ function addFriend (name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
-
-}
+    if(Object.keys(object).length === 0){
+        return false;
+      }else if (object.friends.includes(name)){
+        return true;
+      }else {
+        return false;
+      }
+    }
 
 //////////////////////////////////////////////////////////////////////
 // Function 13 - Non-Friends /////////////////////////////////////////
@@ -123,7 +165,7 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-
+    return [...new Set(array)];
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -149,4 +191,4 @@ if((typeof process !== 'undefined') &&
     module.exports.updateObject = updateObject;
     module.exports.removeProperties = removeProperties;
     module.exports.dedup = dedup;
-}
+   }
