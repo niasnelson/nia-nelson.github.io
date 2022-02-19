@@ -2,18 +2,7 @@
 // Function 1 - Object Values ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-var objectOne = {
-    a: "one",
-    b: "two",
-    ponies: "crayons",
-    dingle: "dangle"
-};
-var objectTwo = {
-    c: "three",
-    d: "four",
-    crayons: "ponies",
-    dangle: "dingle"
-};
+
 
 function objectValues(object) {
   return Object.values(object);

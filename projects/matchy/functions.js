@@ -12,12 +12,23 @@
 //////////////////////////////////////////////////////////////////////
 // Step 1 - Search ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+/*
 function search(animals, name){
     for(var i = 0; i < animals.length; i++ ){
-        if(animals.name === name)
-            return animals[i];
+        if(animals.name === true){
+            return object;
+        } else {}
+    }    
+*/
+    function search(animals, string){
+        for(var i = 0; i < animals.length; i++ ){
+            if(animals[i].name === string){
+                return animals.name;
+            }else {
+              return "null";
+            }
         } 
-    }        
+        }
     
 
 
@@ -25,7 +36,11 @@ function search(animals, name){
 //////////////////////////////////////////////////////////////////////
 // Step 2 - Replace //////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-function replace(animals, name, replacement)
+function replace(animals, name, replacement){
+    for(var i = 0; i < animals.length; i++){
+        if()
+    }
+}
 
 
 //////////////////////////////////////////////////////////////////////
