@@ -69,7 +69,7 @@ var duck = {
   noises: ['quack', 'honk', 'sneeze', 'woosh']
 };
 
-animals.push(duck);
+animals.unshift(duck);
 
 console.log(animals);
 
@@ -88,6 +88,9 @@ var bird = {
 
 animals.push(cat);
 animals.push(bird);
+animals.noises;
+animals.species;
+animals.name;
 console.log(animals);
 console.log(animals.length);
 

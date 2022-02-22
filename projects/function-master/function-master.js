@@ -23,9 +23,11 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
+    for(var values in object){
     return Object.values(object).join(" ");
 }
-
+}
+//use a for-in loop 
 //////////////////////////////////////////////////////////////////////
 // Function 4 - Array or Object //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
@@ -130,7 +132,19 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
-
+  //create variable to store array of non-friends
+  var nonFriends = [];
+  //iterate through input array
+  for (var i = 0; i < array.length; i++){
+    //determine if the current object's name property does not match the     input name
+  if (array[i].name !== name){
+    //determine if the current object's friends property includes the input name
+    if (array[i].friends.includes(name) === false){
+      nonFriends.push(array[i].name)
+    }
+  }
+  }
+  return nonFriends;
 }
 
 //////////////////////////////////////////////////////////////////////

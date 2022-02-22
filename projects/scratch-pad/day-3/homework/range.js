@@ -24,6 +24,7 @@
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
     var integers = [];
+    
     for (var i = start; i <= end; i++){
         integers.push(i);
     } 

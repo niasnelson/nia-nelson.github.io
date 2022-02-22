@@ -66,9 +66,16 @@ function makeContactList(){
             }
         }
     },
+    removeContact: function(contact){
+        for(var i = 0; i < contacts.length; i++){
+           if(contacts[i] === contact) {
+        return contacts.splice(i, 1);
+           }
+        }
 
-    
+}
 
+    }
 
     
 

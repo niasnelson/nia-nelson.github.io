@@ -59,7 +59,7 @@ function getObjectKeys(object) {
 function printObjectKeys(object) {
   // YOUR CODE BELOW HERE //
   for (var keys in object){
-    console.log(object[keys]);
+    console.log(keys);
   }
   // YOUR CODE ABOVE HERE //
 }
