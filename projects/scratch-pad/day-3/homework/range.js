@@ -21,19 +21,21 @@
  *  b. you'll need a loop, which one is best?
  *  c. you'll wanna make use of the push() method of Array.
  */
-function range(start, end) {
-    // YOUR CODE GOES BELOW HERE //
-    var integers = [];
-    
-    for (var i = start; i <= end; i++){
-        integers.push(i);
-    } 
-      if(start < end){
-        return integers;
-      }else {
-        return integers.reverse();
-      }
-};
+ function range(start, end) {
+  // YOUR CODE GOES BELOW HERE //
+  var integers = [];
+if(start > end){
+  for (var i = start; i >= end; i--){
+      integers.push(i);
+  } 
+}else if(start < end){
+  for(var num = start; num <= end; num++){
+    integers.push(num);
+  }
+
+}
+return integers;
+}
     
     // YOUR CODE GOES ABOVE HERE //
 

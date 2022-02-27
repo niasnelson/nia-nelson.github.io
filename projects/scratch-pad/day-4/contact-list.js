@@ -73,8 +73,10 @@ function makeContactList(){
            }
         }
 
-}
-
+    },
+    printAllContactNames: function(){
+        return fullName/n;
+    }
     }
 
     
