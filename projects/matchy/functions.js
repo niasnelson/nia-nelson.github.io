@@ -43,13 +43,12 @@ function remove(animals, name){
     for(var i = 0; i < animals.length; i++ ){
         if(animals[i].name === name){
             delete animals[i];
-        }else {
-            return animals[i];
         }
-        
+    
     }
+    return animals;
    
-}
+};
 
 
 //////////////////////////////////////////////////////////////////////
@@ -59,17 +58,17 @@ function add(animals, animal){
     var nameMatches = false;
   
     //determine if the animals array already contains an animal object with a name property matching the input animal
-  for (var i = 0; i < animals.length; i++)
+  for (var i = 0; i < animals.length; i++){
     if(animals[i].name === animal.name){
       nameMatches = true;
     }
-}
+  }
   //determine if  no match exists AND the input animal object has a name property greater than zero and the input animal object has a length property greater than zero
   //if true, add input animal object to animals array
   if(nameMatches === false && animal.name.length > 0 && animal.species.length > 0){
     animals.push(animal);
     }
-  
+}
 
 /**
  * You did it! You're all done with Matchy!

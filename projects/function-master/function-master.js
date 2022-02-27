@@ -152,7 +152,12 @@ function nonFriends(name, array) {
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-
+  if(!object.hasOwnProperty(key)){
+     object[key] = value;
+  }else {
+      object[key] = value;
+  }
+return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -160,7 +165,10 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
-
+  
+    for (var i = 0; i < array.length; i++){
+      delete object[key] === array[i];    
+  }
 }
 
 //////////////////////////////////////////////////////////////////////
