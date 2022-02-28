@@ -24,7 +24,9 @@ function keysToString(object) {
 
 function valuesToString(object) {
     for(var values in object){
-    return Object.values(object).join(" ");
+      if(object[keys] === "string"){
+        return Object.values(object).join(" ");
+      }
 }
 }
 //use a for-in loop 
@@ -165,10 +167,12 @@ return object;
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
-  
-    for (var i = 0; i < array.length; i++){
-      delete object[key] === array[i];    
+  for (var i = 0; i < array.length; i++){
+    if(object.keys === array[i]){
+      delete object.keys;
   }
+}
+  return object;
 }
 
 //////////////////////////////////////////////////////////////////////
