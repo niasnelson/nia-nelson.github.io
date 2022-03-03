@@ -94,6 +94,16 @@ _.typeOf = function(value) {
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
 
+_.first = function(array, number){
+  if(number === undefined || (typeof number !== "number")){
+    return array[0];
+  }else if(!Array.isArray(array) || number <= 0){
+    return [];
+  }else{
+    return [].slice.call(array, 0, number) ;
+  }
+};
+
 
 /** _.last
 * Arguments:
@@ -113,6 +123,15 @@ _.typeOf = function(value) {
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
 
+_.last = function(array, number){
+  if(number === undefined || (typeof number !== "number")){
+    return array[array.length - 1];
+  }else if(!Array.isArray(array) || number <= 0){
+    return [];
+  }else{
+    return array.slice(-number) ;
+  }
+};
 
 /** _.indexOf
 * Arguments:
@@ -156,6 +175,15 @@ _.indexOf = function(array, value){
 *   _.contains([1,"two", 3.14], "two") -> true
 */
 
+_.contains = function(array, value){
+  for(var i = 0; i < array.length; i++){
+    if(array[i] === value){
+      return true;
+    
+    }
+  }
+return false;
+}
 
 /** _.each
 * Arguments:
@@ -226,7 +254,17 @@ _.unique = function(array){
 *   use _.each in your implementation
 */
 
+_.filter = function(array, func){
+  var results = [];
+  for(var i = 0; i < array.length; i++){
+    if(func(array[i], i, array) === true){
+      results.push(array[i]);
+    }   
+  }  
+  return results;
+}
 
+  
 /** _.reject
 * Arguments:
 *   1) An array
@@ -240,6 +278,15 @@ _.unique = function(array){
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
 
+_.reject = function(array, func){
+  var results = [];
+  for(var i = 0; i < array.length; i++){
+    if(func(array[i], i, array) === false){
+      results.push(array[i]);
+    }
+  }
+  return results;
+}
 
 /** _.partition
 * Arguments:
@@ -260,6 +307,18 @@ _.unique = function(array){
 }
 */
 
+_.partition = function(array, func){
+  var result1 = [];
+  var result2 = [];
+  for(var i = 0; i < array.length; i++){
+    if(func(array[i], i, array) == true){
+      result1.push(array[i]);
+    }else if(func(array[i], i, array) == false){
+      result2.push(array[i]);
+    } 
+  }
+  return [result1, result2];
+}
 
 /** _.map
 * Arguments:
@@ -312,6 +371,11 @@ _.map = function(collection, func){
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
 
+_.pluck = function(array, property){
+  return array.map(function(object){
+    return object[property];
+  });
+}
 
 /** _.every
 * Arguments:
@@ -399,6 +463,39 @@ _.every = function(collection, func){
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 
+_.some = function(collection, func){
+  //determine if func is undefined
+  if(func === undefined){
+    if(Array.isArray(collection)){
+      for (var i = 0; i < collection.length; i++){
+        if(collection[i]){
+          return true;
+        }
+      }
+    }else{
+      for(let key in collection){
+        if(collection[key]){
+          return true;
+        }
+      }
+    }
+  }else{
+    if(Array.isArray(collection)){
+      for(let i = 0; i < collection.length; i++){
+        if(func(collection[i], i, collection) == true){
+          return true;
+        }
+      }
+    }else{
+      for(let key in collection){
+        if(collection[key]){
+          return true;
+        }
+      }
+    }
+  }
+  return false;
+}
 
 /** _.reduce
 * Arguments:
