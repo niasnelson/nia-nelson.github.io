@@ -42,7 +42,7 @@ function replace(animals, name, replacement){
 function remove(animals, name){
     for(var i = 0; i < animals.length; i++ ){
         if(animals[i].name === name){
-            delete animals[i];
+            animals.splice(0, 1, [i]);
         }
     
     }

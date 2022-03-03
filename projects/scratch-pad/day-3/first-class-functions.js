@@ -124,19 +124,15 @@ function modifyStrings(strings, modify) {
  * 
  * TIP: You need to loop over the Strings, right? And pass them to the test?
  */
-function allStringsPass(strings, test) {
-    // YOUR CODE BELOW HERE //
-    for (var i = 0; i < strings.length; i++){
-        strings.push(test)
-        if (strings === test){
-            return true;
-        }else{
-            return false;
-        }
+function allStringsPass(strings, test){
+  //iterate through input strings array
+  for(var i = 0; i < strings.length; i++){
+    //determine if the current string returns false when passed as an argument into the input test function
+    if(test(strings[i]) === false){//test "Stephanie"
+      return false;
     }
-    
-    
-    // YOUR CODE ABOVE HERE //
+  }
+  return true;
 }
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////

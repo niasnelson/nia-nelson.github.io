@@ -24,10 +24,18 @@ var _ = require('underbar');
 var maleCount = function(array) {
     var males = _.filter(array, function(customer){
         return customer.gender === 'male';
-    });// => [{male object}, {male object}, {male object}]
+    
+    });
+    
+    }
+    return // => [{male object}, {male object}, {male object}]
 };
 
-var femaleCount;
+var femaleCount = function(array){
+  var females = _.reduce(array,  function(customer){
+    return customer.gender === 'female';
+  });
+};
 
 var oldestCustomer;
 
