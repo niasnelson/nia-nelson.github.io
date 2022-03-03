@@ -75,11 +75,24 @@ function makeContactList(){
 
     },
     printAllContactNames: function(){
+        //create output string
+        var output = "";
+        //iterate through the contacts array
         for(var i = 0; i < contacts.length; i++){
-            return fullName[i]/n;
+            //determine if on the last item of the array
+            if(i === contacts.length - 1){
+                output += contacts[i].nameFirst + " " + contacts[i].nameLast
+            //else we're not on the last item
+            }else{//access the nameFirst and nameLast properties of the current object to add to the output string
+                output += contacts[i].nameFirst + " " + contacts[i].nameLast + "\n";
+            }//output = "Alex Aaron\n"
+            //"\n"
+            }
+           return output; 
         }
-    },
-}
+    }
+    
+};
 
     
 
@@ -93,4 +106,4 @@ if((typeof process !== 'undefined') &&
     module.exports.makeContact = makeContact;
     module.exports.makeContactList = makeContactList;
 }
-}
+
