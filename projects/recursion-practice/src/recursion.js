@@ -218,24 +218,51 @@ var createArray = function(str){
 
 // 17. Reverse the order of an array
 var reverseArr = function (array) {
+  //base
+  if(array.length === 1){
+    return array[0];
+  }
+  //recursion
+  var list = reverseArr(array.slice(1, array.length));
+  list.push(array[0]);
+  return list;
 };
+
+
 
 // 18. Create a new array with a given value and length.
 // buildList(0,5) // [0,0,0,0,0]
 // buildList(7,3) // [7,7,7]
 var buildList = function(value, length) {
+  if (length === 0) return [];
+  var list = buildList(value, length-1);
+  list.push(value);
+  return list;
 };
 
 // 19. Count the occurence of a value inside a list.
 // countOccurrence([2,7,4,4,1,4], 4) // 3
 // countOccurrence([2,'banana',4,4,1,'banana'], 'banana') // 2
 var countOccurrence = function(array, value) {
+  if (array.length === 0) return 0;
+  if (array[0] === value) return 1 + countOccurrence(array.slice(1, array.length), value);
+  return countOccurrence(array.slice(1, array.length), value);
 };
 
 // 20. Write a recursive version of map.
 // rMap([1,2,3], timesTwo); // [2,4,6]
 var rMap = function(array, callback) {
+   //base
+  if (array.length === 0){
+    return [];
+  //recursion
+  }else{
+  var list = rMap(array.slice(1, array.length), callback);
+  list.unshift(callback(array[0]));
+  return list;
+  }
 };
+
 
 // 21. Write a function that counts the number of times a key occurs in an object.
 // var testobj = {'e': {'x':'y'}, 't':{'r': {'e':'r'}, 'p': {'y':'r'}},'y':'e'};
@@ -270,17 +297,48 @@ var fibonacci = function(n) {
 // nthFibo(7); // 13
 // nthFibo(3); // 2
 var nthFibo = function(n) {
+   if (n < 0){
+    return null;
+ }if (n === 0) {
+    return 0;
+  }if (n === 1) {
+    return 1;
+  //recursion
+  }else{
+  return nthFibo(n-1) + nthFibo(n-2);
+ }
 };
+
 
 // 26. Given an array of words, return a new array containing each word capitalized.
 // var words = ['i', 'am', 'learning', 'recursion'];
 // capitalizedWords(words); // ['I', 'AM', 'LEARNING', 'RECURSION']
-var capitalizeWords = function(input) {
+var capitalizeWords = function(input, output = []) {
+//base
+  if (input.length === 0){
+    return output;
+//recursion
+  }else{
+    output.push(input[0].toUpperCase())
+  }
+  return capitalizeWords(input.slice(1), output);
+
 };
+
 
 // 27. Given an array of strings, capitalize the first letter of each index.
 // capitalizeFirst(['car', 'poop', 'banana']); // ['Car', 'Poop', 'Banana']
-var capitalizeFirst = function(array) {
+var capitalizeFirst = function(array, output = []) {
+  
+  //base
+  if(array.length === 0){
+    return output;
+  }else{
+    //recursion
+  output.push(array[0].charAt(0).toUpperCase() + array[0].substr(1))
+  }
+  return capitalizeFirst(array.slice(1), output)
+  
 };
 
 // 28. Return the sum of all even numbers in an object containing nested objects.
