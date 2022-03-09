@@ -25,19 +25,20 @@ var maleCount = function(array) {
     var males = _.filter(array, function(customer){
         return customer.gender === 'male';
     
-    });
-    
-    }
-    return // => [{male object}, {male object}, {male object}]
+    }); 
+ return males.length; // => [{male object}, {male object}, {male object}]
 };
 
 var femaleCount = function(array){
   var females = _.reduce(array,  function(customer){
     return customer.gender === 'female';
   });
+  return females.length;
 };
 
-var oldestCustomer;
+var oldestCustomer = function(array){
+
+};
 
 var youngestCustomer;
 
