@@ -100,22 +100,31 @@ var range = function(x, y) {
 // Example:  exponent(4,3);  // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
-    //base
-    if(exp === 0){
-      return 1;
-    }
-    //recursion
-    else{
-      return base * exponent(base, exp -1);
-    }
-  };
-
+      //base
+  if(exp === 0){
+    return 1;
+  }
+  //recursion
+  if(exp < 0){
+    return 1/(exponent(base, -1*exp));
+  }
+  return base * exponent(base, exp-1);
+};
 
 // 8. Determine if a number is a power of two.
 // powerOfTwo(1); // true
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
+  //base 
+  if(n === 0){
+    return false;
+  }else if(n === 1){
+    return true;
+  }else if(n%2 !== 0){
+    return false
+  }
+  return powerOfTwo(n/2);
 };
 
 // 9. Write a function that accepts a string a reverses it.
@@ -217,15 +226,16 @@ var createArray = function(str){
 
 
 // 17. Reverse the order of an array
-var reverseArr = function (array) {
-  //base
-  if(array.length === 1){
-    return array[0];
-  }
-  //recursion
-  var list = reverseArr(array.slice(1, array.length));
-  list.push(array[0]);
-  return list;
+var reverseArr = function (array, output=[]) {
+  
+       //base
+       if(array.length === 0){
+        return output;
+      }
+      //recursion
+      output.unshift(array[0]);
+      return reverseArr(array.slice(1), output);
+    
 };
 
 
@@ -360,15 +370,36 @@ var flatten = function(arrays) {
 
 // 30. Given a string, return an object containing tallies of each letter.
 // letterTally('potato'); // {'p':1, 'o':2, 't':2, 'a':1}
-var letterTally = function(str, obj) {
+var letterTally = function(str, obj={}) {
+  if(str.length === 0){
+    return obj;
+  }else if(obj[str.charAt(0)]){
+    obj[str.charAt(0)] ++;
+  }else{
+    obj[str.charAt(0)] = 1;
+  }
+  return letterTally(str.slice(1), obj);
 };
+
 
 // 31. Eliminate consecutive duplicates in a list.  If the list contains repeated
 // elements they should be replaced with a single copy of the element. The order of the
 // elements should not be changed.
 // Example: compress([1, 2, 2, 3, 4, 4, 5, 5, 5]) // [1, 2, 3, 4, 5]
 // Example: compress([1, 2, 2, 3, 4, 4, 2, 5, 5, 5, 4, 4]) // [1, 2, 3, 4, 2, 5, 4]
-var compress = function(list) {
+var compress = function(list, output =[]) {
+    //base
+    if(list.length === 0){
+      return output;  
+    }else if(list.length === 1){
+      output.push(list[0]);
+      return output;
+    //recursion
+    }else if(list[0] !== list[1]){
+      output.push(list[0])
+    }
+     return compress(list.slice(1), output);
+  
 };
 
 // 32. Augment every element in a list with a new value where each element is an array
@@ -381,6 +412,16 @@ var augmentElements = function(array, aug) {
 // minimizeZeroes([2,0,0,0,1,4]) // [2,0,1,4]
 // minimizeZeroes([2,0,0,0,1,0,0,4]) // [2,0,1,0,4]
 var minimizeZeroes = function(array) {
+  //base
+if(array.length === 0){
+  return [];
+}var list = minimizeZeroes(array.slice(1));
+//recursion
+if((array[0] === 0 ^ list[0] === 0) || array[0] !== 0){
+  list.unshift(array[0]);
+}
+ return list;  
+
 };
 
 // 34. Alternate the numbers in an array between positive and negative regardless of
@@ -388,7 +429,26 @@ var minimizeZeroes = function(array) {
 // alternateSign([2,7,8,3,1,4]) // [2,-7,8,-3,1,-4]
 // alternateSign([-2,-7,8,3,-1,4]) // [2,-7,8,-3,1,-4]
 var alternateSign = function(array) {
+     //base
+     if (array.length === 0) {
+      return [];
+  } 
+   // recursion
+  var list = alternateSign(array.slice(0, array.length-1));
+  
+  if (array.length % 2 === 0) {
+    if (array[array.length-1] > 0) {
+      array[array.length-1] = -array[array.length-1];
+    }
+  } else {
+    if (array[array.length-1] < 0) {
+      array[array.length-1] = -array[array.length-1];
+    }
+  }
+  list.push(array[array.length-1]);
+  return list;
 };
+
 
 // 35. Given a string, return a string with digits converted to their word equivalent.
 // Assume all numbers are single digits (less than 10).
