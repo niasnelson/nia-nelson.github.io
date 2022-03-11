@@ -26,34 +26,51 @@ var maleCount = function(array) {
         return customer.gender === 'male';
     
     }); 
- return males.length; // => [{male object}, {male object}, {male object}]
+  return males.length; // => [{male object}, {male object}, {male object}]
 };
 
 var femaleCount = function(array){
-  var females = _.reduce(array,  function(customer){
-    return customer.gender === 'female';
-  });
-  return females.length;
+  var females = _.reduce(array,  function(count, female){
+    if(female.gender === 'female'){
+      count += 1;
+     }
+  return count;
+}, 0);
+
 };
 
 var oldestCustomer = function(array){
+  
 
 };
 
-var youngestCustomer;
+var youngestCustomer = function(array){
 
-var averageBalance;
+}
 
-var firstLetterCount;
+var averageBalance = function(array){
 
-var friendFirstLetterCount;
+}
 
-var friendsCount;
+var firstLetterCount = function(array){
 
-var topThreeTags;
+}
 
-var genderCount;
+var friendFirstLetterCount = function(array){
 
+}
+
+var friendsCount = function(array){
+
+}
+
+var topThreeTags = function(array){
+
+}
+
+var genderCount = function(array){
+  
+}
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
