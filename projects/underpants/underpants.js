@@ -44,6 +44,7 @@ _.identity = function(value){
 * _.typeOf([1,2,3]) -> "array"
 */
 
+
 _.typeOf = function(value) {
     // YOUR CODE BELOW HERE //
     //determine if input value is a string
@@ -226,16 +227,6 @@ _.unique = function(array){
   return[...new Set(array)];
   
 }
-
-/** _.unique
-* Arguments:
-*   1) An array
-* Objectives:
-*   1) Return a new array of all elements from <array> with duplicates removed
-*   2) Use _.indexOf() from above
-* Examples:
-*   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
-*/
 
 
 /** _.filter
@@ -551,9 +542,9 @@ _.reduce = function(array, func, seed){
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
 
-_.extend = function(object1, inputs){
+_.extend = function(object1, ...inputs){
 //copy properties from object2 to object1
-  Object.assign(object1, inputs);
+  Object.assign(object1, ...inputs);
 //copy properties from other objects to object1 in the order they are passed in
 
 //return updated object1

@@ -55,12 +55,16 @@ function reverseArrayInPlace(array) {
 // arrayToList /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function arrayToList(array) {
-  let list = null;
-  for (let i = array.length - 1; i >= 0; i--) {
-    list = {value: array[i], rest: list};
+function arrayToList(array) {//[10, 20, 30]
+  //create a variable called rest and initialize it to null
+  let rest = null;
+  //iterate backwards through input array
+  for(var i = array.length -1; i >= 0; i--){
+    //reassign rest to an object with a value property equal to array[i] and rest property
+    //equal to the current value of rest 
+    rest = {value: array[i], rest};
   }
-  return list;
+return rest;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
