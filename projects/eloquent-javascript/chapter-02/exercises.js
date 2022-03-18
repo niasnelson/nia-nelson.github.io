@@ -5,9 +5,13 @@
 
 function triangles() {
   var input = " ";
-  for (var i = "#"; i.length <= input; i += "#") {
-    console.log(i);
+  
+  for (var i = 0; i < 7 ; i ++) {
+    input = input + "#";
+    
+    
   }
+  console.log(input);
 }
 
 
@@ -36,23 +40,32 @@ function fizzBuzz() {
 ////////////////////////////////////////////////////////////////////////////////
 
 function drawChessboard() {
-  let size = "";
+  var size = 8;
+var block = '#';
+var space = ' ';
 
-  let board = "";
-  
-  for (let y = 0; y < size; y++) {
-    for (let x = 0; x < size; x++) {
-      if ((x + y) % 2 == 0) {
-        board += " ";
-      } else {
-        board += "#";
-      }
+for (var i = 1; i <= size; i++) {
+  var line = '';
+
+  for (var y = 1; y <= size; y++){
+    if (i%2) {
+        if (y%2) {
+            line = line + space;
+        } else {
+            line = line + block;
+        }
+    } else {
+        if (y%2) {
+            line = line + block;
+        } else {
+            line = line + space;
+        }
     }
-    board += "\n";
   }
+
+  console.log(line);
 }
-  
-  console.log(board);
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
